@@ -168,6 +168,14 @@
   tags:
     - cloud-provider
 
+- name: Write azure-endpoints
+  template:
+    src: azure-endpoints.j2
+    dest: "{{ kube_config_dir }}/azure-endpoints.json"
+  when: azure_custom_endpoints is defined
+  tags:
+    - cloud-provider
+
 # reload-systemd
 - meta: flush_handlers
 
